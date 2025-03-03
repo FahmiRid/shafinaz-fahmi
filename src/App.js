@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Joke from "./components/joke";
+import Countdown from "./components/countdown";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Todo from "./components/todo";
+import Gallery from "./components/gallery";
+import RSVPForm from "./components/rsvp";
+import Home from "./components/home";
+import Intinerary from "./components/intinerary";
+import Contact from "./components/contact";
+import { AudioProvider } from "./components/audioProvider";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AudioProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/intinerary" element={<Intinerary />} />
+          <Route path="/countdown" element={<Countdown />} />
+          <Route path="/todo" element={<Todo />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/rsvp" element={<RSVPForm />} />
+        </Routes>
+      </BrowserRouter>
+    </AudioProvider>
   );
 }
 
