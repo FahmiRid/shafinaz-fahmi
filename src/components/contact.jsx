@@ -56,7 +56,7 @@ export default function Contact() {
                   <span
                     id="contact1"
                     onClick={() => {
-                      window.open("https://wa.link/5naetw ", "_blank");
+                      window.open("https://wa.link/9en8c6 ", "_blank");
                     }}
                   >
                     {Contact1}
@@ -66,7 +66,7 @@ export default function Contact() {
                   <span
                     id="contact2"
                     onClick={() => {
-                      window.open("https://wa.link/oj346k ", "_blank");
+                      window.open("https://wa.link/jgxxyf", "_blank");
                     }}
                   >
                     {Contact2}
@@ -76,7 +76,7 @@ export default function Contact() {
                   <span
                     id="contact3"
                     onClick={() => {
-                      window.open("https://wa.link/lcc1f4 ", "_blank");
+                      window.open("https://wa.link/8q1hyf ", "_blank");
                     }}
                   >
                     {Contact3}
@@ -86,7 +86,7 @@ export default function Contact() {
                   <span
                     id="contact4"
                     onClick={() => {
-                      window.open("https://wa.link/lcc1f4 ", "_blank");
+                      window.open("https://wa.link/tr4fcm ", "_blank");
                     }}
                   >
                     {Contact4}
@@ -97,13 +97,13 @@ export default function Contact() {
           </div>
           <div className="location-icon">
             <a
-              href="https://maps.app.goo.gl/QGer2XuTnA3d19Zy9"
+              href="https://maps.app.goo.gl/HRufKtt36vsD2rMp7?g_st=iw"
               target="_blank"
               rel="noopener noreferrer"
               onClick={e => {
                 e.preventDefault();
                 window.open(
-                  "https://maps.app.goo.gl/QGer2XuTnA3d19Zy9",
+                  "https://maps.app.goo.gl/HRufKtt36vsD2rMp7?g_st=iw",
                   "_blank"
                 );
               }}
@@ -116,13 +116,13 @@ export default function Contact() {
               />
             </a>
             <a
-              href="https://ul.waze.com/ul?place=ChIJfeXof8e3zTERchewv2BrmA4&ll=2.91918070%2C101.65799890&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
+              href="https://waze.com/ul/hw280w2hpk"
               target="_blank"
               rel="noopener noreferrer"
               onClick={e => {
                 e.preventDefault();
                 window.open(
-                  "https://ul.waze.com/ul?place=ChIJfeXof8e3zTERchewv2BrmA4&ll=2.91918070%2C101.65799890&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location",
+                  "https://waze.com/ul/hw280w2hpk",
                   "_blank"
                 );
               }}
