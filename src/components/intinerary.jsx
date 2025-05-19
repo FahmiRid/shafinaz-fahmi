@@ -30,10 +30,9 @@ export default function Intinerary() {
             border: "none",
             padding: 0,
             margin: 0,
+            transform: "scale(1.2)",
           }}
-          src="https://www.canva.com/design/DAGe3-pI4zk/HVPw8iErW0HFrmiyuRZsOw/view?embed"
-        //   allowfullscreen="allowfullscreen"
-        //   allow="fullscreen"
+          src="https://www.canva.com/design/DAGn2xaySWU/nnTZGjDkkFru8drZVbPOqQ/view?embed"
         ></iframe>
       </div>
       <div className="dock-cont-intinerary">
@@ -42,3 +41,4 @@ export default function Intinerary() {
     </>
   );
 }
+

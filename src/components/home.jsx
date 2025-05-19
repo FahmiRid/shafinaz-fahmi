@@ -33,7 +33,7 @@ export default function Home() {
             padding: "0",
             margin: "0",
           }}
-          src="https://www.canva.com/design/DAGe3KDl8Lo/NAnlpcbFvoZXD3lgEaP_EQ/view?embed"
+          src="https://www.canva.com/design/DAGn26jX0Kg/uxjX2MQMPf27xMEr1XCePw/view?embed"
         ></iframe>
         <AudioControls />
       </div>
