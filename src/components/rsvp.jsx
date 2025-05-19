@@ -14,7 +14,7 @@ const RSVPForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const { data, error } = await supabase.from("attendance").insert([
+    const { data, error } = await supabase.from("attendance_shafinaz").insert([
       {
         name: names,
         attend: attendance,
@@ -34,7 +34,7 @@ const RSVPForm = () => {
   };
 
   const fetchAttendanceData = async () => {
-    const { data, error } = await supabase.from("attendance").select("*");
+    const { data, error } = await supabase.from("attendance_shafinaz").select("*");
     if (error) {
       console.error(error);
     } else {

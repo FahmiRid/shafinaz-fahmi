@@ -181,7 +181,7 @@
         display: flex;
         bottom: -11em;
         right: 0.5em;
-        gap: 5.9em;
+        gap: 3.9em;
         flex-direction: column;
     }
 
@@ -192,7 +192,7 @@
     }
 
     .contact-name {
-        top: -23.1em;
+        top: -23em;
         right: 0em;
     }
 

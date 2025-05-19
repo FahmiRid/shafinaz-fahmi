@@ -5,9 +5,11 @@ import Whatsapp from "../components/img/whatsapp.png";
 import Google from "../components/img/google.png";
 import Waze from "../components/img/waze.png";
 export default function Contact() {
-  const Contact1 = "DAUD BIN MOHAMMAD";
-  const Contact2 = "SITI AMINAH BINTI WAHAB";
-  const Contact3 = "SYAZWANI SYAHIRAH";
+  const Contact1 = "ANUAR BIN PANOT";
+  const Contact2 = "MASNI BINTI MOHD NOR";
+  const Contact3 = "SHAZIAN BINTI ANUAR";
+  const Contact4 = "SHAZIEDA BINTI ANUAR";
+
   return (
     <>
       <div className="contact-container">
@@ -34,12 +36,20 @@ export default function Contact() {
               alt="Contact"
               style={{ transform: "scale(1.5)" }}
             />
+
+            <img
+              className="icon"
+              src={Whatsapp}
+              alt="Contact"
+              style={{ transform: "scale(1.5)" }}
+            />
+
             <div className="contact-name">
               <ul
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: "6em",
+                  gap: "4em",
                 }}
               >
                 <li>
@@ -70,6 +80,16 @@ export default function Contact() {
                     }}
                   >
                     {Contact3}
+                  </span>
+                </li>
+                <li>
+                  <span
+                    id="contact4"
+                    onClick={() => {
+                      window.open("https://wa.link/lcc1f4 ", "_blank");
+                    }}
+                  >
+                    {Contact4}
                   </span>
                 </li>
               </ul>
