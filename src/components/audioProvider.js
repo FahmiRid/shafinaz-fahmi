@@ -1,7 +1,7 @@
 // src/context/AudioContext.js
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { Howl } from 'howler';
-import Penjaga from '../components/song/penjaga1.mp3';
+import Aku from '../components/song/Aku.mp3';
 
 const AudioContext = createContext();
 
@@ -13,7 +13,7 @@ export const AudioProvider = ({ children }) => {
   useEffect(() => {
     // Initialize Howl
     const howlSound = new Howl({
-      src: [Penjaga],
+      src: [Aku],
       autoplay: true,
       loop: true,
       volume: 0.1,
