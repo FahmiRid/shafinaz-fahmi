@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AnimatedDock from "./dock";
 import "../styles/home.css";
 import AudioControls from "./audioControls";
 
 export default function Home() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const pages = [
+    "https://www.canva.com/design/DAGn26jX0Kg/uxjX2MQMPf27xMEr1XCePw/view?embed",
+    "https://www.canva.com/design/DAGpOXIPfY0/lM-8T0MjU7C7c3nFw8zwEw/view?embed" // Add your second page URL here
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPage((prevPage) => (prevPage + 1) % pages.length);
+    }, 5000); // Change page every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, [pages.length]);
+
   return (
     <>
       <div
@@ -33,7 +47,7 @@ export default function Home() {
             padding: "0",
             margin: "0",
           }}
-          src="https://www.canva.com/design/DAGn26jX0Kg/uxjX2MQMPf27xMEr1XCePw/view?embed"
+          src={pages[currentPage]} // Use the current page URL
         ></iframe>
         <AudioControls />
       </div>
