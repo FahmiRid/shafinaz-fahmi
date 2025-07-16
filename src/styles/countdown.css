@@ -1,6 +1,9 @@
 /* general styling */
 :root {
     --smaller: 0.75;
+    --primary-color: #5a4327;
+    --accent-color: #f5c99a;
+    --bg-color: #faf6f4;
 }
 
 .countdown-container {
@@ -9,18 +12,125 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: #faf6f4;
+    background: linear-gradient(135deg, #faf6f4 0%, #faf6f4 100%);
+    font-family: 'Georgia', serif;
+    padding: 20px;
+}
+
+.wedding-frame {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--accent-color);
+    max-width: 600px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+}
+
+.wedding-frame::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, var(--accent-color), #f4e6a1, var(--accent-color));
+    border-radius: 25px;
+    z-index: -1;
+}
+
+.decorative-corners {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--accent-color);
+}
+
+.decorative-corners::before,
+.decorative-corners::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-color);
+}
+
+.corner-tl {
+    top: 15px;
+    left: 15px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.corner-tr {
+    top: 15px;
+    right: 15px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.corner-bl {
+    bottom: 15px;
+    left: 15px;
+    border-right: none;
+    border-top: none;
+}
+
+.corner-br {
+    bottom: 15px;
+    right: 15px;
+    border-left: none;
+    border-top: none;
+}
+
+.corner-tl::before { top: -10px; left: -10px; border-right: none; border-bottom: none; }
+.corner-tl::after { bottom: -10px; right: -10px; border-left: none; border-top: none; }
+.corner-tr::before { top: -10px; right: -10px; border-left: none; border-bottom: none; }
+.corner-tr::after { bottom: -10px; left: -10px; border-right: none; border-top: none; }
+.corner-bl::before { bottom: -10px; left: -10px; border-right: none; border-top: none; }
+.corner-bl::after { top: -10px; right: -10px; border-left: none; border-bottom: none; }
+.corner-br::before { bottom: -10px; right: -10px; border-left: none; border-top: none; }
+.corner-br::after { top: -10px; left: -10px; border-right: none; border-bottom: none; }
+
+.floral-decoration {
+    position: absolute;
+    font-size: 2rem;
+    color: var(--accent-color);
+    opacity: 0.8;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floral-tl { top: 10px; left: 10px; }
+.floral-tr { top: 10px; right: 10px; }
+.floral-bl { bottom: 10px; left: 10px; }
+.floral-br { bottom: 10px; right: 10px; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
 }
 
 .container {
-    color: #333;
+    color: var(--primary-color);
     margin: 0 auto;
     text-align: center;
-    max-width: 800px;
     display: flex;
     flex-direction: column;
     position: relative;
-    right: 1em;
+}
+
+.wedding-title {
+    font-size: 1.8rem;
+    font-weight: normal;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    animation: slideDown 0.6s ease-out 0.4s forwards;
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
 h1 {
@@ -30,57 +140,101 @@ h1 {
     animation: slideDown 0.6s ease-out 0.4s forwards;
 }
 
+.countdown-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
 li {
-    display: inline-block;
-    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2em;
     list-style-type: none;
-    padding: 1em;
+    padding: 20px;
     text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--accent-color);
+    min-width: 100px;
     animation: slideDown 0.6s ease-out 0.6s forwards;
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
 li span {
     display: block;
-    font-size: 4.5rem;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .label-countdown {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
     position: relative;
-    left: 1em;
+    left: 0;
+}
+
+.label-countdown h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-style: italic;
+    animation: slideDown 0.6s ease-out 0.8s forwards;
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
 .dock-cont-countdown {
     position: relative;
-    top: 15em;
-    left: 1em;
+    top: 9em;
+    left: 0;
+    margin-top: 20px;
 }
-
 
 .emoji {
     display: none;
     padding: 1rem;
+    animation: celebration 2s ease-in-out infinite;
 }
 
 .emoji span {
     font-size: 4rem;
     padding: 0 0.5rem;
+    animation: bounce 1s ease-in-out infinite;
 }
 
-.dock-cont {
-    position: relative;
-    top: 18em;
+@keyframes celebration {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
 
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+@keyframes slideDown {
     to {
         opacity: 1;
         transform: translateY(0);
@@ -88,15 +242,35 @@ li span {
 }
 
 @media all and (max-width: 768px) {
+    .wedding-frame {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .wedding-title {
+        font-size: calc(1.5rem * var(--smaller));
+    }
+
     h1 {
         font-size: calc(1.5rem * var(--smaller));
     }
 
     li {
-        font-size: calc(1.125rem * var(--smaller));
+        font-size: calc(1rem * var(--smaller));
+        padding: 15px;
+        min-width: 80px;
     }
 
     li span {
-        font-size: calc(3.375rem * var(--smaller));
+        font-size: calc(2.5rem * var(--smaller));
+    }
+
+    .decorative-corners {
+        width: 40px;
+        height: 40px;
+    }
+
+    .floral-decoration {
+        font-size: 1.5rem;
     }
 }
