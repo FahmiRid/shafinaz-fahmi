@@ -5,16 +5,13 @@ import Swal from "sweetalert2";
 import supabase from "./supabase";
 const RSVPForm = () => {
   const [names, setNames] = useState("");
-  const [wishNames, setWishNames] = useState("");
   const [description, setDescription] = useState("");
   const [attendance, setAttendance] = useState(0);
-  const [wish, setWish] = useState("");
-  const [showWishForm, setShowWishForm] = useState(false);
   const [wishes, setWishes] = useState([]); // New state to store wishes
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const { data, error } = await supabase.from("attendance_shafinaz").insert([
+    const { error } = await supabase.from("attendance_shafinaz").insert([
       {
         name: names,
         attend: attendance,

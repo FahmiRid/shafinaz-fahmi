@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "../styles/countdown.css";
-import SideNavigation from "./sideNavigation";
 import AnimatedDock from "./dock";
 
 // Constants
@@ -19,20 +18,19 @@ const WEDDING_CONFIG = {
 };
 
 const Countdown = ({ targetDate, onComplete }) => {
-  
   // Calculate the wedding date
   const calculateWeddingDate = useCallback(() => {
     const today = new Date();
     const currentYear = today.getFullYear();
     const nextYear = currentYear + 1;
-    
-    const todayString = today.toLocaleDateString('en-US');
+
+    const todayString = today.toLocaleDateString("en-US");
     let weddingDate = WEDDING_CONFIG.WEDDING_DATE + currentYear;
-    
-    if (todayString > new Date(weddingDate).toLocaleDateString('en-US')) {
+
+    if (todayString > new Date(weddingDate).toLocaleDateString("en-US")) {
       weddingDate = WEDDING_CONFIG.WEDDING_DATE + nextYear;
     }
-    
+
     return new Date(weddingDate).getTime();
   }, []);
 
@@ -42,19 +40,18 @@ const Countdown = ({ targetDate, onComplete }) => {
       days: 0,
       hours: 0,
       minutes: 0,
-      seconds: 0
+      seconds: 0,
     },
     isCompleted: false,
-    headline: WEDDING_CONFIG.INITIAL_HEADLINE
+    headline: WEDDING_CONFIG.INITIAL_HEADLINE,
   });
 
-  const [isNavigationOpen, setIsNavigationOpen] = useState(false);
   const [targetTimestamp] = useState(
     targetDate ? new Date(targetDate).getTime() : calculateWeddingDate()
   );
 
   // Calculate time remaining
-  const calculateTimeLeft = useCallback((targetTime) => {
+  const calculateTimeLeft = useCallback(targetTime => {
     const now = new Date().getTime();
     const distance = targetTime - now;
 
@@ -65,14 +62,13 @@ const Countdown = ({ targetDate, onComplete }) => {
     return {
       days: Math.floor(distance / TIME_CONSTANTS.DAY),
       hours: Math.floor((distance % TIME_CONSTANTS.DAY) / TIME_CONSTANTS.HOUR),
-      minutes: Math.floor((distance % TIME_CONSTANTS.HOUR) / TIME_CONSTANTS.MINUTE),
-      seconds: Math.floor((distance % TIME_CONSTANTS.MINUTE) / TIME_CONSTANTS.SECOND),
+      minutes: Math.floor(
+        (distance % TIME_CONSTANTS.HOUR) / TIME_CONSTANTS.MINUTE
+      ),
+      seconds: Math.floor(
+        (distance % TIME_CONSTANTS.MINUTE) / TIME_CONSTANTS.SECOND
+      ),
     };
-  }, []);
-
-  // Toggle navigation handler
-  const toggleNavigation = useCallback(() => {
-    setIsNavigationOpen(prevState => !prevState);
   }, []);
 
   // Main countdown effect
@@ -86,14 +82,14 @@ const Countdown = ({ targetDate, onComplete }) => {
         setCountdownState({
           timeLeft: { days: 0, hours: 0, minutes: 0, seconds: 0 },
           isCompleted: true,
-          headline: WEDDING_CONFIG.COMPLETION_HEADLINE
+          headline: WEDDING_CONFIG.COMPLETION_HEADLINE,
         });
         onComplete?.();
       } else if (distance >= 0) {
         setCountdownState(prevState => ({
           ...prevState,
           timeLeft,
-          isCompleted: false
+          isCompleted: false,
         }));
       }
     };
@@ -102,7 +98,12 @@ const Countdown = ({ targetDate, onComplete }) => {
     updateCountdown(); // Initial call
 
     return () => clearInterval(intervalId);
-  }, [targetTimestamp, calculateTimeLeft, countdownState.isCompleted, onComplete]);
+  }, [
+    targetTimestamp,
+    calculateTimeLeft,
+    countdownState.isCompleted,
+    onComplete,
+  ]);
 
   // Render countdown item
   const renderCountdownItem = (value, label) => (
@@ -120,18 +121,16 @@ const Countdown = ({ targetDate, onComplete }) => {
         <div className="decorative-corners corner-tr"></div>
         <div className="decorative-corners corner-bl"></div>
         <div className="decorative-corners corner-br"></div>
-        
+
         {/* Floral decorations */}
         <div className="floral-decoration floral-tl">🌸</div>
         <div className="floral-decoration floral-tr">🌺</div>
         <div className="floral-decoration floral-bl">🌹</div>
         <div className="floral-decoration floral-br">🌷</div>
-        
+
         <div className="container">
-          <div className="wedding-title">
-            Countdown to Our Special Day
-          </div>
-          
+          <div className="wedding-title">Countdown to Our Special Day</div>
+
           <div
             id="countdown"
             style={{ display: countdownState.isCompleted ? "none" : "block" }}
@@ -143,15 +142,15 @@ const Countdown = ({ targetDate, onComplete }) => {
               {renderCountdownItem(countdownState.timeLeft.seconds, "Seconds")}
             </ul>
           </div>
-          
+
           <div className="label-countdown">
             <h1 id="headline">{WEDDING_CONFIG.HASHTAG}</h1>
           </div>
-          
+
           <div className="dock-cont-countdown">
             <AnimatedDock />
           </div>
-          
+
           <div
             id="content"
             className="emoji"
