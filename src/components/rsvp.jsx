@@ -16,8 +16,8 @@ const RSVPForm = () => {
     // Validation for name
     if (!names.trim()) {
       Swal.fire({
-        title: "Error!",
-        text: "Please enter your name.",
+        title: "Oppss!",
+        text: "Sila masukan nama.",
         icon: "error",
       });
       return; // Stop the submission if name is empty
