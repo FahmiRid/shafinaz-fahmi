@@ -11,7 +11,7 @@ const TIME_CONSTANTS = {
 };
 
 const WEDDING_CONFIG = {
-  WEDDING_DATE: "08/24/",
+  WEDDING_DATE: "08/24",
   HASHTAG: "#keShayanganFahmi ❤💍",
   INITIAL_HEADLINE: "Countdown Fahmi & Shafinaz",
   COMPLETION_HEADLINE: "It's Our Wedding Day!",
@@ -24,14 +24,20 @@ const Countdown = ({ targetDate, onComplete }) => {
     const currentYear = today.getFullYear();
     const nextYear = currentYear + 1;
 
-    const todayString = today.toLocaleDateString("en-US");
-    let weddingDate = WEDDING_CONFIG.WEDDING_DATE + currentYear;
+    // Create a date object for the wedding date
+    const weddingDateThisYear = new Date(
+      `${WEDDING_CONFIG.WEDDING_DATE}/${currentYear}`
+    );
+    const weddingDateNextYear = new Date(
+      `${WEDDING_CONFIG.WEDDING_DATE}/${nextYear}`
+    );
 
-    if (todayString > new Date(weddingDate).toLocaleDateString("en-US")) {
-      weddingDate = WEDDING_CONFIG.WEDDING_DATE + nextYear;
+    // Check if the wedding date this year has passed
+    if (today > weddingDateThisYear) {
+      return weddingDateNextYear.getTime();
     }
 
-    return new Date(weddingDate).getTime();
+    return weddingDateThisYear.getTime();
   }, []);
 
   // State
